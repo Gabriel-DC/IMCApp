@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMCApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="balanca.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Balança para pesagem" />
+
+            <Label
+                Text="Calculadora de IMC"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label Text=" (Índice de Massa Corporal)"
+                   Style="{StaticResource SubHeadline}"/>
+
+            <Button
+                x:Name="BtnGo"
+                Margin="0,150"
+                Clicked="BtnGo_Clicked"
+                Text="Começar Agora!"
+                FontSize="25"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

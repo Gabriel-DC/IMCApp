@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMCApp.Mvvm.Views.ImcCalculatorView"
+             Title="Calculadora IMC"
+             BackgroundColor="{StaticResource PageColor}">
+
+    <VerticalStackLayout Padding="20" Margin="25">
+        <Label
+            Text="Selecione seu Sexo"
+            HorizontalOptions="Center"
+            FontSize="30"
+            Margin="0,0,0,20"/>
+
+        <FlexLayout
+            HeightRequest="150"
+            HorizontalOptions="Center"
+            JustifyContent="SpaceAround">
+            <Border
+                StrokeShape="RoundRectangle 40,0,0,40"
+                StrokeThickness="0">
+
+                <ImageButton
+                    x:Name="ManIcon"
+                    Clicked="ManIcon_Clicked"
+                    Source="man_stick.svg"
+                    Aspect="AspectFit"
+                    WidthRequest="70"/>
+
+            </Border>
+            <Line
+                Stroke="{StaticResource Gray100}"
+                Y2="250"
+                StrokeThickness="4"/>
+
+            <Border
+                StrokeShape="RoundRectangle 0,40,40,0"
+                StrokeThickness="0">
+
+                <ImageButton 
+                    x:Name="WomanIcon"
+                    Clicked="WomanIcon_Clicked"
+                    Source="woman_stick.svg"
+                    Aspect="AspectFit"
+                    WidthRequest="70"/>
+
+            </Border>
+        </FlexLayout>
+
+        <Grid 
+            RowDefinitions="*,*,*" 
+            ColumnDefinitions=".3*,.4*,.3*" 
+            Margin="0,75" 
+            ColumnSpacing="20"
+            RowSpacing="25">
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Peso:"
+                FontSize="Large"
+                VerticalOptions="Center"/>
+
+            <Frame
+                Grid.Row="0"
+                Grid.Column="1"
+                Padding="10">
+                <Entry
+                    x:Name="EntryPeso"                    
+                    Text="{Binding Peso, StringFormat='{0:F2}'}"
+                    Keyboard="Numeric"
+                    FontSize="30"
+                    Margin="0"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"/>
+            </Frame>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Kg"
+                TextColor="{StaticResource Primary}"
+                FontAttributes="Bold"
+                FontSize="30"
+                VerticalOptions="Center"/>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Altura:"
+                FontSize="Large"
+                VerticalOptions="Center"/>
+
+            <Frame
+                Grid.Row="1"
+                Grid.Column="1"
+                Padding="10">
+
+                <Entry
+                    x:Name="EntryAltura"                    
+                    Text="{Binding Altura}"
+                    Keyboard="Numeric"
+                    FontSize="30"
+                    Margin="0"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"/>
+            </Frame>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="2"
+                Text="Cm"
+                TextColor="{StaticResource Primary}"
+                FontAttributes="Bold"
+                FontSize="30"
+                VerticalOptions="Center"/>
+
+            <Button
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                Text="Calcular IMC"
+                TextColor="{StaticResource White}"
+                BorderColor="{StaticResource Primary}"
+                BorderWidth="1"
+                Command="{Binding CalcularImcCommand}"
+                FontSize="30"
+                FontAttributes="Bold"/>
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
